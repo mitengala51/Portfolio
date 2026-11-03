@@ -1,25 +1,35 @@
-const BASE = import.meta.env.VITE_API_URL ?? "";
+import axios from "axios";
 
-async function request(path, options = {}) {
-  let response;
-  try {
-    response = await fetch(`${BASE}${path}`, {
-      headers: { "Content-Type": "application/json" },
-      ...options,
-    });
-  } catch {
-    throw new Error("Can't reach the server. Please email me directly.");
-  }
+// One configured instance for the whole app.
+// In development baseURL is empty, so Vite's /api proxy handles requests.
+// In production, set VITE_API_URL to your deployed backend.
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL ?? "",
+  headers: { "Content-Type": "application/json" },
+  timeout: 30000, // generous: free-tier backends can take a while to wake up
+});
 
-  const data = await response.json().catch(() => ({}));
+// Turn every axios failure into a plain Error the UI can show directly.
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const data = error.response?.data;
 
-  if (!response.ok) {
-    const error = new Error(data.message || "Something went wrong.");
-    error.fieldErrors = data.errors || {};
-    throw error;
-  }
+    let message = data?.message;
+    if (!message) {
+      if (error.code === "ECONNABORTED") message = "The server took too long to respond. Please try again.";
+      else if (error.response) message = "Something went wrong.";
+      else message = "Can't reach the server. Please email me directly.";
+    }
+
+    const normalized = new Error(message);
+    normalized.status = error.response?.status;
+    normalized.fieldErrors = data?.errors || {};
+    return Promise.reject(normalized);
+  },
+);
+
+export async function sendContactMessage(payload) {
+  const { data } = await api.post("/api/contact", payload);
   return data;
 }
-
-export const sendContactMessage = (payload) =>
-  request("/api/contact", { method: "POST", body: JSON.stringify(payload) });
