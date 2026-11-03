@@ -29,43 +29,43 @@ const allProjects = [
     },
     images: [
       {
-        src: "../../public/Divya Collection/thumbnail.png",
+        src: "/Divya Collection/thumbnail.png",
         alt: "Divya Collection home page",
         // width: 1500,
         // height: 775,
       },
       {
-        src: "../../public/Divya Collection/homepage.jpeg",
+        src: "/Divya Collection/homepage.jpeg",
         alt: "Divya Collection home page",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/Divya Collection/product detail.jpeg",
+        src: "/Divya Collection/product detail.jpeg",
         alt: "Divya Collection product detail page",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/Divya Collection/product search.jpeg",
+        src: "/Divya Collection/product search.jpeg",
         alt: "Divya Collection product search page",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/Divya Collection/about us.jpeg",
+        src: "/Divya Collection/about us.jpeg",
         alt: "Divya Collection about us page",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/Divya Collection/contact us.jpeg",
+        src: "/Divya Collection/contact us.jpeg",
         alt: "Divya Collection contact us page",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/Divya Collection/shopping cart.jpeg",
+        src: "/Divya Collection/shopping cart.jpeg",
         alt: "Divya Collection cart page",
         width: 1216,
         height: 775,
@@ -96,13 +96,13 @@ const allProjects = [
     },
     images: [
       {
-        src: "../../public/CabPool/thumbnail.png",
+        src: "/CabPool/thumbnail.png",
         alt: "Cabpool Thumbnail",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/CabPool/cabpool.png",
+        src: "/CabPool/cabpool.png",
         alt: "Cabpool Website",
         width: 1216,
         height: 775,
@@ -144,13 +144,13 @@ const allProjects = [
     images: [
       // Add actual project screenshots
       {
-        src: "../../public/Gohil Motors/thumbnail.png",
+        src: "/Gohil Motors/thumbnail.png",
         alt: "Gohil Motors thumbnail",
         width: 1216,
         height: 775,
       },
       {
-        src: "../../public/Gohil Motors/gohil motors.png",
+        src: "/Gohil Motors/gohil motors.png",
         alt: "Gohil Motors homepage",
         width: 1216,
         height: 775,

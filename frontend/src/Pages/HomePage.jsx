@@ -8,7 +8,7 @@ import usePageMeta from "../hooks/usePageMeta";
 
 export default function HomePage() {
   usePageMeta({
-    title: "Freelance Web Developer in Mumbai | Websites & E-commerce Stores",
+    title: "Miten Gala | Full-stack web developer",
     description: "Fast, mobile-first websites, online stores and web apps built with React and Node.js. Get a free quote.",
   });
 
