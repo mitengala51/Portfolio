@@ -9,8 +9,7 @@ function getTransporter() {
   // Created once and reused, instead of per request
   transporter ??= nodemailer.createTransport({
     service: "gmail",
-    port: 465,
-    secure: true,
+    port: 443,
     auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
   });
   return transporter;
