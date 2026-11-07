@@ -30,6 +30,6 @@ api.interceptors.response.use(
 );
 
 export async function sendContactMessage(payload) {
-  const { data } = await api.post("/api/contact", payload);
+  const { data } = await api.post("https://api.web3forms.com/submit", { ...payload, access_key: import.meta.env.VITE_FORM_ACCESS_KEY });
   return data;
 }
